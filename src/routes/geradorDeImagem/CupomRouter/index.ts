@@ -103,7 +103,7 @@ CupomRouter.post('/cupom', async (request, response) => {
         context.beginPath();
 
         if(valorDesconto){
-            context.font = `bold 200px roboto`;
+            context.font = `bold 200px arial`;
             context.fillStyle = "black";
             context.textAlign = "center";
             var textoValor = "R$ "+ valorDesconto
@@ -114,7 +114,7 @@ CupomRouter.post('/cupom', async (request, response) => {
             context.fillText(textoValor, 535, 800);
             context.fill();
         }else if(valorDescontoPercentual){
-            context.font = `bold 200px roboto`;
+            context.font = `bold 200px arial`;
             context.fillStyle = "black";
             context.textAlign = "center";
             var textoValor = parseInt(valorDescontoPercentual)+"%" 
@@ -122,7 +122,7 @@ CupomRouter.post('/cupom', async (request, response) => {
             context.fill();
         }
 
-        context.font = `100px roboto`;
+        context.font = `100px arial`;
         context.fillStyle = "black";
         context.textAlign = "center";
         var textoValor = "de desconto"
@@ -131,7 +131,7 @@ CupomRouter.post('/cupom', async (request, response) => {
 
         
         if(freteGratis){
-            context.font = `100px roboto`;
+            context.font = `100px arial`;
             context.fillStyle = "black";
             context.textAlign = "center";
             var textoValor = "+ frete grátis"
@@ -140,7 +140,7 @@ CupomRouter.post('/cupom', async (request, response) => {
         }
 
         if(valorPedidoMinimo){
-            context.font = `50px roboto`;
+            context.font = `50px arial`;
             context.fillStyle = "black";
             context.textAlign = "center";
             var textoValor = "R$ "+ valorPedidoMinimo
@@ -154,7 +154,7 @@ CupomRouter.post('/cupom', async (request, response) => {
         }
 
         if(somenteSite || somenteApp){
-            context.font = `60px roboto`;
+            context.font = `60px arial`;
             context.fillStyle = "white";
             context.textAlign = "center";
             var textoValor = somenteSite ? "* Apenas no Site" : "* Apenas no App"
@@ -164,7 +164,7 @@ CupomRouter.post('/cupom', async (request, response) => {
         
 
 
-        context.font = `bold 120px roboto`;
+        context.font = `bold 120px arial`;
         context.fillStyle = "white";
         context.textAlign = "center";
         context.fillText(codigoCupom.toUpperCase(), 535, 1725);
