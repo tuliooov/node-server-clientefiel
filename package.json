@@ -7,11 +7,15 @@
     "build": "tsc",
     "dev:server": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules src/server.ts"
   },
+  "type": "module",
   "dependencies": {
+    "@babel/core": "^7.14.6",
     "@types/express": "^4.17.9",
     "canvas": "^2.8.0",
+    "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "express": "^4.17.1",
+    "request": "^2.88.2",
     "uuidv4": "^6.2.5"
   },
   "devDependencies": {
