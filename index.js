@@ -5,7 +5,7 @@ const jsonParser = bodyParser.json()
 // const express = require('express')
 const cors = require('cors');
 const path = require('path')
-const PORT = process.env.PORT || 5000
+const PORT = 5000
 
 
 express()
@@ -18,4 +18,4 @@ express()
     return response.status(200).json({ mensagem: 'success' });
   })
   .use('/', jsonParser, routes)
-  .listen(PORT, () => console.log(`Listening on ${PORT}`))
+  .listen(PORT, '0.0.0.0', () => console.log(`Listening on ${PORT}`))
