@@ -8,7 +8,7 @@ routes.get('/', (request, response) => {
     return response.status(200).json({ mensagem: 'success' });
 }) 
 
-routes.get('/v1/geradorDeImagem', geradorDeImagemRouter)
+routes.post('/v1/geradorDeImagem', geradorDeImagemRouter)
 
 
 module.exports = routes;
