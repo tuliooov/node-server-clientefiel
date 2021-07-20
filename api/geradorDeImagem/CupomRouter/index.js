@@ -1,6 +1,6 @@
 // src/routes/index.ts
 const express = require('express')
-const {createCanvas, loadImage, Image} = require('canvas')
+const { createCanvas, loadImage, Image } = require('canvas')
 const fs = require('fs')
 const CupomRouter = express.Router();
 
