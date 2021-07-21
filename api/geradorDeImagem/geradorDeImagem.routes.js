@@ -2,7 +2,7 @@ const express = require('express')
 const CupomRouter = require('./CupomRouter')
 const geradorDeImagemRouter = express.Router();
 
-geradorDeImagemRouter.get('/cupom', CupomRouter)
-geradorDeImagemRouter.post('/cupom', CupomRouter)
+//Cupom
+geradorDeImagemRouter.use('/geradorDeImagem', CupomRouter)
 
 module.exports = geradorDeImagemRouter;
