@@ -32,7 +32,7 @@ CupomRouter.post('/stories', async (request, response) => {
         const {
             logo = "https://s3-sa-east-1.amazonaws.com/clientefielsp/dados_aplicativos//20200403142244.png",
             corprimaria = "red",
-            corsecundaria = "black",
+            corsecundaria = "#2d2d2d",
         } = headers
 
         // console.log('body', body)
@@ -86,8 +86,8 @@ CupomRouter.post('/stories', async (request, response) => {
         context.beginPath();
 
         if (valorDesconto) {
-            context.font = `bold 200px roboto`;
-            context.fillStyle = "black";
+            context.font = `bold 200px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "R$ " + valorDesconto
             textoValor = textoValor.replace('.', ',')
@@ -97,16 +97,16 @@ CupomRouter.post('/stories', async (request, response) => {
             context.fillText(textoValor, 535, 800);
             context.fill();
         } else if (valorDescontoPercentual) {
-            context.font = `bold 200px roboto`;
-            context.fillStyle = "black";
+            context.font = `bold 200px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = parseInt(valorDescontoPercentual) + "%"
             context.fillText(textoValor, 535, 800);
             context.fill();
         }
 
-        context.font = `100px roboto`;
-        context.fillStyle = "black";
+        context.font = `100px Roboto`;
+        context.fillStyle = "#2d2d2d";
         context.textAlign = "center";
         var textoValor = "de desconto"
         context.fillText(textoValor, 535, 900);
@@ -114,8 +114,8 @@ CupomRouter.post('/stories', async (request, response) => {
 
 
         if (freteGratis) {
-            context.font = `100px roboto`;
-            context.fillStyle = "black";
+            context.font = `100px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "+ frete grátis"
             context.fillText(textoValor, 535, 1010);
@@ -123,8 +123,8 @@ CupomRouter.post('/stories', async (request, response) => {
         }
 
         if (valorPedidoMinimo) {
-            context.font = `50px roboto`;
-            context.fillStyle = "black";
+            context.font = `50px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "R$ " + valorPedidoMinimo
             textoValor = textoValor.replace('.', ',')
@@ -137,7 +137,7 @@ CupomRouter.post('/stories', async (request, response) => {
         }
 
         if (somenteSite || somenteApp) {
-            context.font = `60px roboto`;
+            context.font = `60px Roboto`;
             context.fillStyle = "white";
             context.textAlign = "center";
             var textoValor = somenteSite ? "* Apenas no Site" : "* Apenas no App"
@@ -147,7 +147,7 @@ CupomRouter.post('/stories', async (request, response) => {
 
 
 
-        context.font = `bold 120px roboto`;
+        context.font = `bold 120px Roboto`;
         context.fillStyle = "white";
         context.textAlign = "center";
         context.fillText(codigoCupom.toUpperCase(), 535, 1725);

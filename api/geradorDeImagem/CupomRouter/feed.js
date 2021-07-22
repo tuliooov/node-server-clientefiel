@@ -32,16 +32,16 @@ CupomRouter.post('/feed', async (request, response) => {
         const {
             logo = "https://s3-sa-east-1.amazonaws.com/clientefielsp/dados_aplicativos//20200403142244.png",
             corprimaria = "red",
-            corsecundaria = "black",
+            corsecundaria = "#2d2d2d",
         } = headers
 
         console.log('body', body)
         console.log('headers', headers)
 
-        const background = await loadImage('./api/geradorDeImagem/CupomRouter/cupom-stories.png')
+        const background = await loadImage('./api/geradorDeImagem/CupomRouter/cupom-feed.png')
         const logoImg = await loadImage(logo)
 
-        const canvas = createCanvas(1080, 1920);
+        const canvas = createCanvas(1000, 1000);
         const context = canvas.getContext("2d")
 
 
@@ -51,80 +51,74 @@ CupomRouter.post('/feed', async (request, response) => {
 
 
         context.beginPath();
-        context.arc((canvas.width / 2), (canvas.height / 2) - 610, 170, 0, 2 * Math.PI, false);
+        context.arc((canvas.width / 2), (canvas.height / 2) - 350, 100, 0, 2 * Math.PI, false);
         context.fillStyle = '#f7f7f7';
         context.fill();
         context.beginPath();
 
-        context.drawImage(logoImg, (540 - 300 / 2), 200, 300, 300);
+        context.drawImage(logoImg, (575 - 300 / 2), 75, 150, 150);
 
 
 
         context.beginPath();
-        context.arc(0, 0, 260, 0, 2 * Math.PI, false);
+        context.arc(0, 0, 150, 0, 2 * Math.PI, false);
         context.fillStyle = `${corprimaria}`;
         context.fill();
         context.beginPath();
 
         context.beginPath();
-        context.arc(1080, 860, 190, 0, 2 * Math.PI, false);
-        context.fillStyle = `${corprimaria}`;
-        context.fill();
-        context.beginPath();
-
-        context.beginPath();
-        context.arc(0, 1400, 185, 0, 2 * Math.PI, false);
+        context.arc(1000, 700, 100, 0, 2 * Math.PI, false);
         context.fillStyle = `${corprimaria}`;
         context.fill();
         context.beginPath();
 
 
         context.beginPath();
-        context.arc(0, 1140, 60, 0, 2 * Math.PI, false);
+        context.arc(0, 600, 60, 0, 2 * Math.PI, false);
         context.fillStyle = `${corsecundaria}`;
         context.fill();
         context.beginPath();
 
         if (valorDesconto) {
-            context.font = `bold 200px roboto`;
-            context.fillStyle = "black";
+            context.font = `bold 100px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "R$ " + valorDesconto
             textoValor = textoValor.replace('.', ',')
             if (textoValor.indexOf(',') && textoValor.substr(textoValor.indexOf(',') + 1, textoValor.length).length === 1) {
                 textoValor += '0'
             }
-            context.fillText(textoValor, 535, 800);
+            context.fillText(textoValor, 500, 400);
             context.fill();
         } else if (valorDescontoPercentual) {
-            context.font = `bold 200px roboto`;
-            context.fillStyle = "black";
+            context.font = `bold 100px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = parseInt(valorDescontoPercentual) + "%"
-            context.fillText(textoValor, 535, 800);
+            context.fillText(textoValor, 500, 400);
             context.fill();
         }
 
-        context.font = `100px roboto`;
-        context.fillStyle = "black";
+        context.font = `60px Roboto`;
+        context.fillStyle = "#2d2d2d";
         context.textAlign = "center";
         var textoValor = "de desconto"
-        context.fillText(textoValor, 535, 900);
+        context.fillText(textoValor, 500, 480);
         context.fill();
 
 
         if (freteGratis) {
-            context.font = `100px roboto`;
-            context.fillStyle = "black";
+            context.font = `60px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "+ frete grátis"
-            context.fillText(textoValor, 535, 1010);
+            context.fillText(textoValor, 500, 550);
             context.fill();
         }
 
         if (valorPedidoMinimo) {
-            context.font = `50px roboto`;
-            context.fillStyle = "black";
+            context.font = `30px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = "R$ " + valorPedidoMinimo
             textoValor = textoValor.replace('.', ',')
@@ -132,25 +126,25 @@ CupomRouter.post('/feed', async (request, response) => {
                 textoValor += '0'
             }
             textoValor = "* Acima de " + textoValor
-            context.fillText(textoValor, 535, 1100);
+            context.fillText(textoValor, 500, 630);
             context.fill();
         }
 
         if (somenteSite || somenteApp) {
-            context.font = `60px roboto`;
-            context.fillStyle = "white";
+            context.font = `30px Roboto`;
+            context.fillStyle = "#2d2d2d";
             context.textAlign = "center";
             var textoValor = somenteSite ? "* Apenas no Site" : "* Apenas no App"
-            context.fillText(textoValor, 535, 1850);
+            context.fillText(textoValor, 500, 680);
             context.fill();
         }
 
 
 
-        context.font = `bold 120px roboto`;
+        context.font = `bold 80px Roboto`;
         context.fillStyle = "white";
         context.textAlign = "center";
-        context.fillText(codigoCupom.toUpperCase(), 535, 1725);
+        context.fillText(codigoCupom.toUpperCase(), 500, 950);
         context.fill();
 
         const dataURL = canvas.toDataURL()
