@@ -31,11 +31,11 @@ CupomRouter.post('/stories', async (request, response) => {
 
         const {
             logo = "https://s3-sa-east-1.amazonaws.com/clientefielsp/dados_aplicativos//20200403142244.png",
-            corPrimaria = "red",
-            corSecundaria = "black",
+            corprimaria = "red",
+            corsecundaria = "black",
         } = headers
 
-        console.log('body', body)
+        // console.log('body', body)
         console.log('headers', headers)
 
         const background = await loadImage('./api/geradorDeImagem/CupomRouter/cupom-stories.png')
@@ -62,26 +62,26 @@ CupomRouter.post('/stories', async (request, response) => {
 
         context.beginPath();
         context.arc(0, 0, 260, 0, 2 * Math.PI, false);
-        context.fillStyle = `${corPrimaria}`;
+        context.fillStyle = `${corprimaria}`;
         context.fill();
         context.beginPath();
 
         context.beginPath();
         context.arc(1080, 860, 190, 0, 2 * Math.PI, false);
-        context.fillStyle = `${corPrimaria}`;
+        context.fillStyle = `${corprimaria}`;
         context.fill();
         context.beginPath();
 
         context.beginPath();
         context.arc(0, 1400, 185, 0, 2 * Math.PI, false);
-        context.fillStyle = `${corPrimaria}`;
+        context.fillStyle = `${corprimaria}`;
         context.fill();
         context.beginPath();
 
 
         context.beginPath();
         context.arc(0, 1140, 60, 0, 2 * Math.PI, false);
-        context.fillStyle = `${corSecundaria}`;
+        context.fillStyle = `${corsecundaria}`;
         context.fill();
         context.beginPath();
 
